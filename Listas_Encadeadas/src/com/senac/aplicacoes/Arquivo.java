@@ -2,7 +2,6 @@ package com.senac.aplicacoes;
 
 import java.io.*;
 
-import java.util.Scanner;
 
 public class Arquivo {
 
@@ -11,14 +10,17 @@ public class Arquivo {
 		try {
 			
 			Writer fileWriter = new FileWriter("registros.txt", true);
+			
 			fileWriter.write("\n"+nome+ "\n" + telefone);
+			fileWriter.append(System.getProperty("line.separator"));
 			fileWriter.close();
-
+			
+			
 			Reader fileReader = new FileReader("registros.txt");
+			
 			BufferedReader br = new BufferedReader(fileReader);
-
-			String registro = br.readLine();
-			String campos[] = registro.split(";");
+			br.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -14,13 +14,24 @@ public class ListaEncadeada<T extends Comparable<T>> {
 
 	public void print()
 	{
-		Nodo<?> nodo = head;
+		Nodo nodo = head;
 		do {
-			out.println(nodo.getData());
+			out.println(nodo.toString());
 			nodo = nodo.getNext();
 		} while (nodo != null);
 	}
-
+	
+	public String toString(){
+		String saida="";
+		Nodo nodo = head;
+		do {
+			saida+=nodo.toString()+" --- ";
+			nodo = nodo.getNext();
+		} while (nodo != null);
+		
+		return saida;
+	}
+	
 	public void insert(Nodo<T> novo)
 	{
 		novo.setNext(head);

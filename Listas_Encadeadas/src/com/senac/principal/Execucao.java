@@ -3,6 +3,7 @@ package com.senac.principal;
 import com.senac.estruturas.*;
 import com.senac.aplicacoes.*;
 import java.util.Scanner;
+
 public class Execucao {
 
 	public static Arquivo registro = new Arquivo();
@@ -11,20 +12,52 @@ public class Execucao {
 	public static Scanner sc=new Scanner(System.in);
 	
 	public static ListaOrdenada<String> lista = new ListaOrdenada<String>();
-	public static Nodo<String> nodo = new Nodo();
+	public static Telefone telefone = new Telefone();
+	public static Nodo nodo = new Nodo();
 	
 	
 	public static void insereContatos(){
 		String nome;
 		String telefone;
+		Nodo nodo;
 
-		System.out.println("Digite o nome a ser inserido:");
+		/*System.out.println("Digite o nome a ser inserido:");
 		nome = sc.next();
 		System.out.println("Digite o numero a ser inserido:");
 		telefone = sc.next();
 		lista.insert(new Nodo<String>(nome));
 		lista.insert(new Nodo<String>(telefone));
 		registro.criaArquivo(nome, telefone);
+		*/
+		
+		System.out.println("Digite o nome a ser inserido:");
+		nome = sc.next();
+		System.out.println("Digite o numero a ser inserido:");
+		telefone = sc.next();
+		nodo = new Nodo<String>(nome, telefone);
+		
+		Nodo<String> nodoAux = new Nodo();
+		do{
+			if(nodo.getNext() == null){
+				
+				nodo.setNext(new Nodo<String>());
+				
+			}else{
+				
+				nodoAux = nodo.getNext();
+				nodo = nodoAux;
+				
+			}
+			
+		}while(nodo.getNext() == null);
+
+		nodo.setNext(nodoAux.getNext());
+		
+		
+		registro.criaArquivo(nodo.getNome(),nodo.getTelefone());
+		
+		
+		
 	}
 	
 	public static void removeContatos(){
@@ -36,7 +69,8 @@ public class Execucao {
 	}
 
 	public static void mostraContatos(){
-		lista.print();
+		nodo.toString();
+		//lista.toString();
 		
 	}
 	public static void main(String[] args) {

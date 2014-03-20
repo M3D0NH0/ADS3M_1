@@ -2,16 +2,18 @@ package com.senac.aplicacoes;
 
 import java.io.*;
 
+import com.senac.estruturas.Telefone;
+
 
 public class Arquivo {
 
-	public void criaArquivo(String nome, String telefone){
+	public void gravaArquivo(Telefone telefone){
 		
 		try {
 			
 			Writer fileWriter = new FileWriter("registros.txt", true);
 			
-			fileWriter.write("\n"+nome+ "\n" + telefone);
+			fileWriter.write("\n"+telefone.getNome()+ "\n" + telefone.getTelefone());
 			fileWriter.append(System.getProperty("line.separator"));
 			fileWriter.close();
 			

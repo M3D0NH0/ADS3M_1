@@ -1,7 +1,7 @@
-package com.senac.estruturas;
+package com.senac.models;
 
 public class ConverteColuna {
-	
+
 	public int getColuna(String coluna){
 		coluna = coluna.toUpperCase();
 		switch(coluna){
@@ -19,6 +19,6 @@ public class ConverteColuna {
 		}
 		return 100;
 	}
-	
-	
+
+
 }

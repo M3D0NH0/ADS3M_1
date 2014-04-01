@@ -1,6 +1,6 @@
 package com.senac.estruturas;
 
-public class Telefone {
+public class Telefone implements Comparable<Telefone>{
 	
 	String nome;
 	String telefone;
@@ -38,5 +38,15 @@ public class Telefone {
 				"Telefone: " + getTelefone();
 		return saida;
 	}
+
+	@Override
+	public int compareTo(Telefone tel) {
+		if(this == tel)
+			return 0;
+
+		return this.nome.compareToIgnoreCase(tel.nome);
+	}
+
+
 	
 }

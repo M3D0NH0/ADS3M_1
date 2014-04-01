@@ -14,24 +14,13 @@ public class ListaEncadeada<T extends Comparable<T>> {
 
 	public void print()
 	{
-		Nodo nodo = head;
+		Nodo<?> nodo = head;
 		do {
-			out.println(nodo.toString());
+			out.println(nodo.getData());
 			nodo = nodo.getNext();
 		} while (nodo != null);
 	}
-	
-	public String toString(){
-		String saida="";
-		Nodo nodo = head;
-		do {
-			saida+=nodo.toString()+" --- ";
-			nodo = nodo.getNext();
-		} while (nodo != null);
-		
-		return saida;
-	}
-	
+
 	public void insert(Nodo<T> novo)
 	{
 		novo.setNext(head);
@@ -59,15 +48,15 @@ public class ListaEncadeada<T extends Comparable<T>> {
 	}
 
 	/*public static void main(String[] args)
-	{
-		ListaEncadeada<String> lista = new ListaEncadeada<String>();
+{
+ListaEncadeada<String> lista = new ListaEncadeada<String>();
 
-		lista.insert(new Nodo<String>("Rafael"));
-		lista.insert(new Nodo<String>("Tiago"), lista.getHead());
-		lista.append(new Nodo<String>("Mauro"));
-		lista.insert(new Nodo<String>("Carlos"));
+lista.insert(new Nodo<String>("Rafael"));
+lista.insert(new Nodo<String>("Tiago"), lista.getHead());
+lista.append(new Nodo<String>("Mauro"));
+lista.insert(new Nodo<String>("Carlos"));
 
-		lista.print();
-	}
+lista.print();
+}
 	 */
 }

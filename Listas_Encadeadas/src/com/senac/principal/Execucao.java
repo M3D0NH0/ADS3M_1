@@ -11,15 +11,14 @@ public class Execucao {
 	public static int funcao=0;
 	public static Scanner sc=new Scanner(System.in);
 	
-	public static ListaOrdenada<String> lista = new ListaOrdenada<String>();
+	public static ListaOrdenada<Telefone> lista = new ListaOrdenada<Telefone>();
 	public static Telefone telefone = new Telefone();
-	public static Nodo nodo = new Nodo();
+	public static Nodo<Telefone> nodo = new Nodo<Telefone>();
 	
 	
 	public static void insereContatos(){
 		String nome;
 		String telefone;
-		Nodo nodo;
 
 		/*System.out.println("Digite o nome a ser inserido:");
 		nome = sc.next();
@@ -34,13 +33,18 @@ public class Execucao {
 		nome = sc.next();
 		System.out.println("Digite o numero a ser inserido:");
 		telefone = sc.next();
-		nodo = new Nodo<String>(nome, telefone);
 		
-		Nodo<String> nodoAux = new Nodo();
+		
+		
+		lista.insert(new Nodo<Telefone>((new Telefone(nome, telefone))));
+		
+		
+		Nodo<Telefone> nodoAux = new Nodo<Telefone>();
 		do{
+			
 			if(nodo.getNext() == null){
 				
-				nodo.setNext(new Nodo<String>());
+				nodo.setNext(new Nodo<Telefone>((new Telefone(nome, telefone))));
 				
 			}else{
 				
@@ -49,12 +53,14 @@ public class Execucao {
 				
 			}
 			
-		}while(nodo.getNext() == null);
+		}while(nodo.getNext() != null);
 
 		nodo.setNext(nodoAux.getNext());
 		
 		
-		registro.criaArquivo(nodo.getNome(),nodo.getTelefone());
+		
+		Execucao.telefone = nodo.getTelefone();
+		registro.gravaArquivo(Execucao.telefone);
 		
 		
 		

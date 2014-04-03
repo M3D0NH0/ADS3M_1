@@ -1,10 +1,14 @@
 package com.senac.models;
 
+import com.senac.navios.Navios;
+
 public class Mapa {
 	int coluna = 10;
 	int linha = 10;
 	String[][] mapa=new String[coluna][linha];
 	String[] vetColuna=new String[coluna];
+	String[][] vetNavios = new String[coluna][linha];
+	Navios navio = new Navios();
 	
 	public void setAlvo(int c, int l){
 		mapa[c][l] = "X";
@@ -47,6 +51,11 @@ public class Mapa {
 		return saida;
 	}
 	
-	
+	public void setNavios(){
+		
+		
+		
+		
+	}
 	
 }

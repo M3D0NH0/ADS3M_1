@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 import com.senac.models.Jogador;
 import com.senac.models.Mapa;
-import com.senac.models.Navios;
 import com.senac.models.ConverteColuna;
+import com.senac.navios.Navios;
 
 public class Principal {
 
@@ -15,9 +15,13 @@ public class Principal {
 	public static ConverteColuna convCol=new ConverteColuna();
 	public static int vida=15;
 	
+	
 	public static void main(String[] args) {
 		Jogador jogador1 = new Jogador();
+		
 		jogador1.criaMapa();
+		
+		
 		System.out.println(jogador1);
 		do{
 		System.out.println();

@@ -5,7 +5,7 @@ public class Jogador {
 	
 	
 	private int vida=15;
-	Mapa oceano = new Mapa();
+	private Mapa oceano = new Mapa();
 	
 	public void setVida(int vida){
 		this.vida = vida;

@@ -42,6 +42,7 @@ public class Mapa {
 	
 	public String toString(){
 		String saida="";
+		saida += "  0 1 2 3 4 5 6 7 8 9";
 		for (int i = 0; i < mapa.length; i++) {
 			saida+="\n"+vetColuna[i] +" ";
 			for (int x = 0; x < mapa[i].length; x++) {
@@ -51,7 +52,7 @@ public class Mapa {
 		return saida;
 	}
 	
-	public void setNavios(){
+	public void setNavios(Navios navio){
 		
 		
 		

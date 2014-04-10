@@ -11,6 +11,16 @@ public class Navios {
 	
 	protected int size;
 	protected String nome="";
+	int posicao=0;
+	
+	public void getPosicao(){
+		
+		
+	}
+	public int setPosicao(int z, int y, int orient){
+		
+		return 0;
+	}
 	
 	public String getNome(){
 		return this.nome;

@@ -30,9 +30,10 @@ public class Menu {
 
 	public static void main(String[] args) {
 		criaVetor();
-		InsertionSort insertion = new InsertionSort(10);
-		QuickSort quick=new QuickSort(10);
+		InsertionSort insertion = null;
+		QuickSort quick= null ;
 		int opcao=0;
+		int opcaoAux=0;
 		do{
 			System.out.println("Qual Sort voce quer utilizar?\n"+
 					"0 - Insertion Sort"+
@@ -42,16 +43,23 @@ public class Menu {
 			opcao= sc.nextInt();
 			switch(opcao){
 			case 0:
-				insertion.insertionSort(vet1);
+				insertion = new InsertionSort(vet1);
+				insertion.insertionSort();
+				opcaoAux = 0;
 				break;
 			case 1:
-				quick.quick_sort(vet1, 0, vet1.length-1);
+				quick = new QuickSort(vet1);
+				quick.quick_sort( 0, vet1.length-1);
+				opcaoAux = 1;
 				break;
 			case 2:
-				for (int i = 0; i < vet1.length; i++) {
-					System.out.println(vet1[i]);
+				if(opcaoAux == 0){
+					if(insertion == null) break;
+					System.out.println(insertion);
+				}else{
+					if(quick == null) break;
+					System.out.println(quick);
 				}
-				System.out.println("Quantidade de passos : "+insertion.getStep());
 				break;
 			case 3:
 				for (int i = 0; i < vet1.length; i++) {
